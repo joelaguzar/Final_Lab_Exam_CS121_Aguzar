@@ -31,3 +31,5 @@ class DiceGame:
         with open("data/rankings.txt", "w") as file:
             for score in self.scores:
                 file.write(f"{score.username}|{score.game_id}|{score.points}|{score.wins}\n")
+    
+    def play
