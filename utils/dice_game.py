@@ -156,7 +156,8 @@ class DiceGame:
                 
     def _show_main_menu(self):
         while True: 
-            print("\n--- Main Menu ---")
+            print ("\nWelcome Dice Game!")                                                               
+            print("\n====== Main Menu ======")
             print("\n1. Register")
             print("2. Login")
             print("3. Exit")
