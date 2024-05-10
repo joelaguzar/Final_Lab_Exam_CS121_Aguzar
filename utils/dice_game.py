@@ -96,3 +96,87 @@ class DiceGame:
         else:
             for i, score in enumerate(sorted_scores[:10]):
                 print(f"{i+1}. {score.username} | {score.game_id} | Points: {score.points} | Stages Won: {score.wins}")
+    
+    def logout(self):
+        if self.current_user:
+            print(f"\n{self.current_user.username} logged out successfully.")
+        self.current_user = None
+
+    def _register_user(self):
+        while True:
+            username = input("\nEnter username must be atleast 4 characters (leave blank to cancel): ")
+            if not username:
+                return  
+
+            password = input("Enter password must be atleast 8 characters (leave blank to cancel): ")
+            if not password:
+                return  
+
+            if self.user_manager.register(username, password):
+                print(f"\nUser {username} registered successfully!")
+                return
+            else:
+                print("\nRegistration failed. Username might be taken or invalid.") 
+
+    def _login_user(self):
+        while True: 
+            username = input("\nEnter username (leave blank to cancel): ")
+            if not username:
+                return  
+
+            password = input("Enter password (leave blank to cancel): ")
+            if not password:
+                return  
+
+            if self.user_manager.login(username, password):
+                self.current_user = User(username, password)
+                print(f"\nWelcome, {username}!")
+                return 
+            else:
+                print("\nLogin failed. Incorrect username or password.")
+                
+    def _show_logged_in_menu(self):
+        while True:
+            print(f"\n--- Logged in as {self.current_user.username} ---")
+            print("\n1. Play Game")
+            print("2. Show Top Scores")
+            print("3. Logout")
+
+            choice = input("\nEnter your choice: ")
+
+            if choice == '1':
+                self.play_game()
+            elif choice == '2':
+                self.show_top_scores()
+            elif choice == '3':
+                self.logout()
+                break  
+            else:
+                print("\nInvalid choice. Please try again.")
+                
+    def _show_main_menu(self):
+        while True: 
+            print("\n--- Main Menu ---")
+            print("\n1. Register")
+            print("2. Login")
+            print("3. Exit")
+
+            choice = input("\nEnter your choice: ")
+
+            if choice == '1':
+                self._register_user()
+                break  
+            elif choice == '2':
+                self._login_user()
+                break 
+            elif choice == '3':
+                print("\nExiting the game. Goodbye!")
+                exit()  
+            else:
+                print("\nInvalid choice. Please try again.")
+                
+    def menu(self):
+        if self.current_user:
+            self._show_logged_in_menu()
+        else:
+            self._show_main_menu()
