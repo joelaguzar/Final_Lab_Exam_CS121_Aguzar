@@ -39,5 +39,19 @@ class UserManager:
             return False
         return True
     
+    def register(self, username, password):
+        if not self.validate_username(username):
+            return False
+        if not self.validate_password(password):
+            return False
+        
+        new_user = User(username, password)
+        self.users[username] = new_user 
+        self.users[username] = password 
+        self.save_users()
+        return True
+    
+    
+    
         
             
