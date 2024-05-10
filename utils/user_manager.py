@@ -51,7 +51,12 @@ class UserManager:
         self.save_users()
         return True
     
-    
-    
+    def login(self, username, password):
+        if username not in self.users:
+            return False
         
-            
+        user_password = self.users[username]
+        if user_password != password:
+            return False
+        
+        return True 
