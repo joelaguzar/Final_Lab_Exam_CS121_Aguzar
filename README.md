@@ -1,10 +1,10 @@
-# Final Laboratory Exam
+# 🎲 Final Laboratory Exam
 
 This application is developed for the Final Lab Exam in CS121: Advanced Computer Programming by Student: Joel Lazernie A. Aguzar SR-Code: 23-00562.
 
-## Video Presentation
+## 📹 Video Presentation
 
-## Functionality and Features
+## 🚀 Functionality and Features
 
 This Python application implements a simple dice game where users can register, log in, play the game, view top scores, and log out. Below are the main features of the app:
 
