@@ -39,12 +39,12 @@ class DiceGame:
         player_name = self.current_user.username
 
         now = datetime.datetime.now()
-        game_id = now.strftime("%d %b %Y %I:%M %p") 
+        game_id = now.strftime("%d %b %Y %I:%M %p")  # Example: 10 May 2024 10:00 AM
         current_score = Score(self.current_user.username, game_id)
         stage = 1
 
         while True:
-            print(f"\n--- STAGE {stage} ---")
+            print(f"\n--- Stage {stage} ---")
             player_wins = 0
             computer_wins = 0
 
@@ -75,10 +75,24 @@ class DiceGame:
                     break
                 stage += 1
             else:
-                print("Game over. You didn't win any stage.")
+                print("\nGame over. You didn’t win this stage.")
                 break
 
-        self.scores.append(current_score)
-        self.save_scores()
+        if current_score.points > 0:
+            self.scores.append(current_score)
+            self.save_scores()
+            print("\nYour score has been recorded.")
+        else:
+            print("\nYou didn't score any points in this game.")
         print(f"\nTotal Points: {current_score.points}")
         print(f"Stages Won: {current_score.wins}")
+
+    def show_top_scores(self):
+        sorted_scores = sorted(self.scores, key=lambda score: score.points, reverse=True)
+
+        print("\n--- Top 10 Highest Scores ---")
+        if not sorted_scores:
+            print("\nNo scores recorded yet.")
+        else:
+            for i, score in enumerate(sorted_scores[:10]):
+                print(f"{i+1}. {score.username} | {score.game_id} | Points: {score.points} | Stages Won: {score.wins}")
