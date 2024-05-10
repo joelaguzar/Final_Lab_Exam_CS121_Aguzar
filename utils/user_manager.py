@@ -11,7 +11,7 @@ class UserManager:
             os.makedirs("data")
         try:
             with open("data/users.txt" , "r") as file:
-                for lime in file:
+                for line in file:
                     username, password = line.strip().split("|")
                     self.users[username] = password
         except FileNotFoundError:

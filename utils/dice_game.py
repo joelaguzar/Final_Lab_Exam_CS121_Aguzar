@@ -44,12 +44,12 @@ class DiceGame:
         stage = 1
 
         while True:
-            print(f"\n--- Stage {stage} ---")
+            print(f"\n------------------- Stage {stage} ------------------")
             player_wins = 0
             computer_wins = 0
+            rounds_played = 0
 
-            # rounds = 3
-            while player_wins < 2 and computer_wins < 2:
+            while rounds_played < 3:
                 player_roll = random.randint(1, 6)
                 computer_roll = random.randint(1, 6)
                 print(f"\n{player_name} rolled: {player_roll}")
@@ -59,12 +59,15 @@ class DiceGame:
                     print(f"{player_name} win this round!")
                     player_wins += 1
                     current_score.points += 1
+                    rounds_played += 1
                 elif computer_roll > player_roll:
                     print("Computer wins this round!")
                     computer_wins += 1
+                    rounds_played += 1
                 else:
                     print("It's a tie! Roll again.")
-                # rounds -= 1
+                    
+            print ("-----------------------------------------------")
 
             if player_wins >= 2:
                 print(f"\n{player_name} won stage {stage}!")
@@ -86,6 +89,8 @@ class DiceGame:
             print("\nYou didn't score any points in this game.")
         print(f"\nTotal Points: {current_score.points}")
         print(f"Stages Won: {current_score.wins}")
+        print ("-----------------------------------------------")
+        
 
     def show_top_scores(self):
         sorted_scores = sorted(self.scores, key=lambda score: score.points, reverse=True)
