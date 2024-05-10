@@ -25,7 +25,7 @@ class UserManager:
                 for username, password in self.user.items():
                     file.write(f"{username}|{password}\n")
         except IOError:
-            print ("Unable to save users")
+            print ("\nUnable to save users")
                     
     def validate_username(self, username):
         if len(username) < 4:

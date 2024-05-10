@@ -90,7 +90,7 @@ class DiceGame:
     def show_top_scores(self):
         sorted_scores = sorted(self.scores, key=lambda score: score.points, reverse=True)
 
-        print("\n--- Top 10 Highest Scores ---")
+        print("\n----------- Top 10 Highest Scores -----------")
         if not sorted_scores:
             print("\nNo scores recorded yet.")
         else:
