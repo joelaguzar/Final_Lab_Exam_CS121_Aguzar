@@ -7,8 +7,8 @@ class UserManager:
         self.load_users()
         
     def load_users(self):
-        if not os.path.exist("data"):
-            os.maskedir("data")
+        if not os.path.exists("data"):
+            os.makedirs("data")
         try:
             with open("data/users.txt" , "r") as file:
                 for lime in file:
@@ -22,7 +22,7 @@ class UserManager:
     def save_users(self):
         try:
             with open ("data/users.txt", "w") as file:
-                for username, password in self.user.items():
+                for username, password in self.users.items():
                     file.write(f"{username}|{password}\n")
         except IOError:
             print ("\nUnable to save users")

@@ -48,8 +48,8 @@ class DiceGame:
             player_wins = 0
             computer_wins = 0
 
-            rounds = 3
-            while rounds > 0:
+            # rounds = 3
+            while player_wins < 2 and computer_wins < 2:
                 player_roll = random.randint(1, 6)
                 computer_roll = random.randint(1, 6)
                 print(f"\n{player_name} rolled: {player_roll}")
@@ -64,7 +64,7 @@ class DiceGame:
                     computer_wins += 1
                 else:
                     print("It's a tie! Roll again.")
-                rounds -= 1
+                # rounds -= 1
 
             if player_wins >= 2:
                 print(f"\n{player_name} won stage {stage}!")
@@ -75,10 +75,10 @@ class DiceGame:
                     break
                 stage += 1
             else:
-                print("\nGame over. You didn’t win this stage.")
+                print("\nGame over. You didn't win this stage.")
                 break
 
-        if current_score.points > 0:
+        if current_score.points > 0 and current_score.wins > 0:
             self.scores.append(current_score)
             self.save_scores()
             print("\nYour score has been recorded.")
@@ -90,7 +90,7 @@ class DiceGame:
     def show_top_scores(self):
         sorted_scores = sorted(self.scores, key=lambda score: score.points, reverse=True)
 
-        print("\n----------- Top 10 Highest Scores -----------")
+        print("\n---------------------- Top 10 Highest Scores ----------------------")
         if not sorted_scores:
             print("\nNo scores recorded yet.")
         else:
