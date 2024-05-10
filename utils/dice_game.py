@@ -24,7 +24,7 @@ class DiceGame:
         except FileNotFoundError:
             return None
         except ValueError:
-            print("Error: Invalid data in ranking file.")
+            print("Error: Invalid data in rank file.")
             return None
         
     def save_scores(self):
@@ -38,6 +38,7 @@ class DiceGame:
             return
         player_name = self.current_user.username
 
+        #unique game id
         now = datetime.datetime.now()
         game_id = now.strftime("%d %b %Y %I:%M %p")  # Example: 10 May 2024 10:00 AM
         current_score = Score(self.current_user.username, game_id)
