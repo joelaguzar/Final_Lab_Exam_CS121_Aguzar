@@ -18,4 +18,12 @@ class UserManager:
             return None
         except ValueError:
             return None
+        
+    def save_users(self):
+        try:
+            with open ("data/users..txt", "w") as file:
+                for username, password in self.user.items():
+                    file.write(f"{username}|{password}\n")
+    
+        
             
