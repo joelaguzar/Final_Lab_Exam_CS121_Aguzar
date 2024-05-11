@@ -4,6 +4,8 @@ This application is developed for the Final Lab Exam in CS121: Advanced Computer
 
 ## 📹 Video Presentation
 
+[<img src="https://drive.google.com/file/d/1Jinr4fNcKAKDx1bU153Xzo6N38xFnCsR/view?usp=drive_link" width="50%">](https://drive.google.com/file/d/1PiPwwrEikVahJlDW3tHpvnyvZpmGOPtB/view?usp=drive_link "Now in Android: 55")
+
 ## 🚀 Functionality and Features
 
 This Python application implements a simple dice game where users can register, log in, play the game, view top scores, and log out. Below are the main features of the app:
