@@ -6,7 +6,7 @@ This application is developed for the Final Lab Exam in CS121: Advanced Computer
 
 ### Final_Lab_Exam_CS121_Aguzar
 
-Video Link: https://drive.google.com/file/d/1PiPwwrEikVahJlDW3tHpvnyvZpmGOPtB/view?usp=sharing
+Video Link: https://drive.google.com/file/d/1NmkIreOitRK0K-4EkePKJpWSNj08RIj_/view?usp=sharing
 
 ## 🚀 Functionality and Features
 
